@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2010 the original author or authors.
  * See the notice.md file distributed with this work for additional
  * information regarding copyright ownership.
@@ -18,14 +18,7 @@
 
 package io.airlift.airline;
 
-import io.airlift.airline.model.ArgumentsMetadata;
-import io.airlift.airline.model.CommandGroupMetadata;
-import io.airlift.airline.model.CommandMetadata;
-import io.airlift.airline.model.GlobalMetadata;
-import io.airlift.airline.model.MetadataLoader;
-import io.airlift.airline.model.OptionMetadata;
-import io.airlift.airline.util.ArgumentChecker;
-import io.airlift.airline.util.CollectionUtils;
+import static io.airlift.airline.ParserUtil.createInstance;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,7 +27,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static io.airlift.airline.ParserUtil.createInstance;
+import io.airlift.airline.model.ArgumentsMetadata;
+import io.airlift.airline.model.CommandGroupMetadata;
+import io.airlift.airline.model.CommandMetadata;
+import io.airlift.airline.model.GlobalMetadata;
+import io.airlift.airline.model.MetadataLoader;
+import io.airlift.airline.model.OptionMetadata;
+import io.airlift.airline.util.ArgumentChecker;
+import io.airlift.airline.util.CollectionUtils;
 
 public class Cli<C>
 {
@@ -91,11 +91,10 @@ public class Cli<C>
     {
         return parse(Arrays.asList(args));
     }
-    
+
     public C parse(Iterable<String> args)
     {
         ArgumentChecker.checkNotNull(args, "args is null");
-        
         Parser parser = new Parser();
         ParseState state = parser.parse(metadata, args);
 
@@ -120,7 +119,7 @@ public class Cli<C>
                 command.getMetadataInjections(),
                 CollectionUtils.<Class<?>, Object>asMap(GlobalMetadata.class, metadata));
     }
-    
+
     private void validate(ParseState state)
     {
         CommandMetadata command = state.getCommand();
@@ -138,7 +137,7 @@ public class Cli<C>
         if (state.getParsedArguments().isEmpty() && arguments != null && arguments.isRequired()) {
             throw new ParseArgumentsMissingException(arguments.getTitle());
         }
-        
+
         if (!state.getUnparsedInput().isEmpty()) {
             throw new ParseArgumentsUnexpectedException(state.getUnparsedInput());
         }
@@ -165,6 +164,7 @@ public class Cli<C>
         protected TypeConverter typeConverter = new TypeConverter();
         protected String optionSeparators;
         private Class<? extends C> defaultCommand;
+
         private final List<Class<? extends C>> defaultCommandGroupCommands = new ArrayList<>();
         protected final Map<String, GroupBuilder<C>> groups = new HashMap<>();
 
@@ -182,6 +182,7 @@ public class Cli<C>
             this.description = description;
             return this;
         }
+
 
         public CliBuilder<C> withDefaultCommand(Class<? extends C> defaultCommand)
         {

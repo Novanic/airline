@@ -93,7 +93,6 @@ public class ParseState
         return new ParseState(group, command, parsedOptions, locationStack, newArguments, currentOption, unparsedInput);
     }
 
-
     public ParseState withUnparsedInput(String input)
     {
         List<String> newUnparsedInput = new ArrayList<>(unparsedInput);

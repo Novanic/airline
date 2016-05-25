@@ -1,16 +1,18 @@
 package io.airlift.airline;
 
-import io.airlift.airline.model.CommandGroupMetadata;
-import io.airlift.airline.model.CommandMetadata;
-import io.airlift.airline.model.GlobalMetadata;
-
-import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 
+import javax.inject.Inject;
+
+import io.airlift.airline.model.CommandGroupMetadata;
+import io.airlift.airline.model.CommandMetadata;
+import io.airlift.airline.model.GlobalMetadata;
+
 @Command(name = "help", description = "Display help information")
-public class Help implements Runnable, Callable<Void>
+public class Help
+        implements Runnable, Callable<Void>
 {
     @Inject
     public GlobalMetadata global;

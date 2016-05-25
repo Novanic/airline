@@ -18,26 +18,20 @@
 
 package io.airlift.airline.args;
 
-import io.airlift.airline.Arguments;
-import io.airlift.airline.Option;
-
-import java.util.ArrayList;
 import java.util.List;
 
-public class ArgsDefault
+import io.airlift.airline.Command;
+import io.airlift.airline.Option;
+
+@Command(name = "Args3", description = "args3 description")
+public class Args3
 {
-    @Arguments
-    public List<String> parameters = new ArrayList<>();
+    @Option(name = "-noValue", description = "0 values")
+    public boolean noValue;
 
-    @Option(name = "-log", description = "Level of verbosity")
-    public Integer log = 1;
+    @Option(name = "-oneValue", description = "1 value")
+    public int oneValue;
 
-    @Option(name = "-groups", description = "Comma-separated list of group names to be run")
-    public String groups;
-
-    @Option(name = "-debug", description = "Debug mode")
-    public boolean debug = false;
-
-    @Option(name = "-level", description = "A long number")
-    public long level;
+    @Option(name = "-twoValues", description = "2 values", arity = 2)
+    public List<Integer> twoValues;
 }

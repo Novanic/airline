@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2010 the original author or authors.
  * See the notice.md file distributed with this work for additional
  * information regarding copyright ownership.
@@ -18,7 +18,8 @@
 
 package io.airlift.airline;
 
-public class ParseException extends RuntimeException
+public class ParseException
+        extends RuntimeException
 {
     public ParseException(String string, Object... args)
     {

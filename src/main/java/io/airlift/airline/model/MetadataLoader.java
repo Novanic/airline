@@ -10,6 +10,7 @@ import io.airlift.airline.util.ArgumentChecker;
 import io.airlift.airline.util.CollectionUtils;
 
 import javax.inject.Inject;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -92,7 +93,6 @@ public class MetadataLoader
                 commandType);
 
         return commandMetadata;
-
     }
 
     public static SuggesterMetadata loadSuggester(Class<? extends Suggester> suggesterClass)
@@ -122,7 +122,8 @@ public class MetadataLoader
                             field.getType().equals(CommandGroupMetadata.class) ||
                             field.getType().equals(CommandMetadata.class)) {
                         injectionMetadata.metadataInjections.add(new Accessor(path));
-                    } else {
+                    }
+                    else {
                         loadInjectionMetadata(field.getType(), injectionMetadata, path);
                     }
                 }

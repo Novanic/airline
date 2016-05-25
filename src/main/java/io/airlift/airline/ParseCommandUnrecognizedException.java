@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2010 the original author or authors.
  * See the notice.md file distributed with this work for additional
  * information regarding copyright ownership.
@@ -21,7 +21,8 @@ package io.airlift.airline;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParseCommandUnrecognizedException extends ParseException
+public class ParseCommandUnrecognizedException
+        extends ParseException
 {
     private final List<String> unparsedInput;
 

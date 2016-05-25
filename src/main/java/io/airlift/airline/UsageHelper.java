@@ -52,7 +52,6 @@ public class UsageHelper
     public static String toDescription(OptionMetadata option)
     {
         Set<String> options = option.getOptions();
-
         String argumentString = formatArgumentString(option);
 
         Set<String> optionsFormatted = formatOptions(options, argumentString);
@@ -66,7 +65,6 @@ public class UsageHelper
         }
 
         return "<" + arguments.getTitle() + ">";
-
     }
 
     public static String toUsage(OptionMetadata option)

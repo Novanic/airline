@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2010 the original author or authors.
  * See the notice.md file distributed with this work for additional
  * information regarding copyright ownership.
@@ -18,12 +18,12 @@
 
 package io.airlift.airline.args;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.airlift.airline.Arguments;
 import io.airlift.airline.Command;
 import io.airlift.airline.Option;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Command(name = "Args2")
 public class Args2

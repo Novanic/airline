@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import java.util.stream.Stream;
 
 public class GlobalSuggester
-    implements Suggester
+        implements Suggester
 {
     @Inject
     public GlobalMetadata metadata;

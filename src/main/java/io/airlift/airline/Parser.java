@@ -1,17 +1,17 @@
 package io.airlift.airline;
 
-import io.airlift.airline.model.ArgumentsMetadata;
-import io.airlift.airline.model.CommandGroupMetadata;
-import io.airlift.airline.model.CommandMetadata;
-import io.airlift.airline.model.GlobalMetadata;
-import io.airlift.airline.model.OptionMetadata;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+
+import io.airlift.airline.model.ArgumentsMetadata;
+import io.airlift.airline.model.CommandGroupMetadata;
+import io.airlift.airline.model.CommandMetadata;
+import io.airlift.airline.model.GlobalMetadata;
+import io.airlift.airline.model.OptionMetadata;
 
 public class Parser
 {
@@ -308,7 +308,7 @@ public class Parser
         }
         return null;
     }
-
+    
     private CommandMetadata findCommand(GlobalMetadata metadata, String token, ParseState state) {
         List<CommandMetadata> expectedCommands = metadata.getDefaultGroupCommands();
         if (state.getGroup() != null) {
