@@ -18,10 +18,10 @@
 
 package io.airlift.airline.args;
 
+import java.util.List;
+
 import io.airlift.airline.Command;
 import io.airlift.airline.Option;
-
-import java.util.List;
 
 @Command(name = "Args3", description = "args3 description")
 public class Args3

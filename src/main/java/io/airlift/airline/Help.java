@@ -1,15 +1,14 @@
 package io.airlift.airline;
 
-import io.airlift.airline.model.CommandGroupMetadata;
-import io.airlift.airline.model.CommandMetadata;
-import io.airlift.airline.model.GlobalMetadata;
-
-import javax.inject.Inject;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 
-import static com.google.common.collect.Lists.newArrayList;
+import javax.inject.Inject;
+
+import io.airlift.airline.model.CommandGroupMetadata;
+import io.airlift.airline.model.CommandMetadata;
+import io.airlift.airline.model.GlobalMetadata;
 
 @Command(name = "help", description = "Display help information")
 public class Help
@@ -19,7 +18,7 @@ public class Help
     public GlobalMetadata global;
 
     @Arguments
-    public List<String> command = newArrayList();
+    public List<String> command = new ArrayList<>();
 
     @Override
     public void run()

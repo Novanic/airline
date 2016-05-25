@@ -18,8 +18,7 @@
 
 package io.airlift.airline;
 
-import com.google.common.collect.ImmutableList;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class ParseCommandUnrecognizedException
@@ -30,7 +29,7 @@ public class ParseCommandUnrecognizedException
     ParseCommandUnrecognizedException(List<String> unparsedInput)
     {
         super("Command '%s' not recognized", unparsedInput.get(0));
-        this.unparsedInput = ImmutableList.copyOf(unparsedInput);
+        this.unparsedInput = new ArrayList<>(unparsedInput);
     }
 
     public List<String> getUnparsedInput()
